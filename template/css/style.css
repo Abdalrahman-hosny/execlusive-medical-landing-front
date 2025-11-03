@@ -745,3 +745,116 @@ a {
     gap: 10px;
   }
 }
+ /* أنيميشن عامة */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    /* تأثيرات عند التمرير */
+    [data-aos] {
+      opacity: 0;
+      transition: all 0.8s ease-in-out;
+    }
+
+    [data-aos].aos-animate {
+      opacity: 1;
+    }
+
+    /* تأثيرات على البطاقات */
+    .service-card, .network-card, .location-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-card:hover, .network-card:hover, .location-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* تأثيرات على زر التواصل */
+    .contact_us a {
+      transition: all 0.3s ease;
+    }
+
+    .contact_us a:hover {
+      transform: scale(1.05);
+    }
+
+    /* تأثيرات على زر التمرير للأعلى */
+    .scrollTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 9999;
+    }
+
+    .scrollTop:hover {
+      background: #0056b3;
+    }
+
+    /* تأثيرات على زر البحث */
+    #searchButton {
+      transition: all 0.3s ease;
+    }
+
+    #searchButton:hover {
+      transform: scale(1.05);
+    }
+
+    /* تأثيرات على قسم التنزيل */
+    .download-btn {
+      transition: all 0.3s ease;
+      margin: 0 10px;
+    }
+
+    .download-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* تأثيرات على أيقونات التواصل الاجتماعي */
+    .social-icon {
+      transition: all 0.3s ease;
+      margin: 0 5px;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-5px);
+    }
+
+    /* تأثيرات على الروابط في الفوتر */
+    .footer-links li {
+      transition: all 0.3s ease;
+      margin: 5px 0;
+    }
+
+    .footer-links li:hover {
+      transform: translateX(-5px);
+    }
+
+    /* تأثيرات على قسم الخريطة */
+    .map-container {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .map-container:hover {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
