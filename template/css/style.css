@@ -119,9 +119,12 @@ body {
 
 /* Hero Section */
 .hero-section {
-  height: 100vh;
+  height: 78vh; /* يظهر الهيرو بشكل أقوى */
+  min-height: 560px;
   overflow: hidden;
   position: relative;
+  padding: 30px 0;
+  background: linear-gradient(180deg, rgba(3,37,116,0.03) 0%, rgba(255,255,255,0.02) 40%);
 }
 
 .hero-section .swiper {
@@ -139,47 +142,104 @@ body {
 
 .hero-image-container {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  max-width: 1400px; /* حصر أقصى عرض أكبر */
+  height: auto;
+  overflow: visible;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 20px;
 }
 
 .hero-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  animation: zoomInOut 20s infinite alternate;
+  width: auto;
+  max-width: 95%; /* كبر الصورة جدا كما طلبت */
+  height: auto;
+  object-fit: contain; /* حافظ على نسبة الصورة دون قص */
+  border-radius: 14px;
+  display: block;
+  margin: 8px auto 0 auto;
+  box-sizing: border-box;
+  border: 6px solid rgba(255,255,255,0.95); /* إطار أبيض ناعم */
+  box-shadow: 0 34px 110px rgba(7, 15, 35, 0.25), 0 12px 40px rgba(7,15,35,0.14);
+  background: #fff; /* خلفية للإطار */
+  animation: fadeInUp 0.9s cubic-bezier(.2,.9,.3,1) both; /* تأثير دخول لطيف */
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
 }
 
-@keyframes zoomInOut {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.1);
-  }
+.hero-image-container img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 56px 160px rgba(7,15,35,0.32), 0 18px 56px rgba(7,15,35,0.18);
+}
+
+.hero-download {
+  text-align: center;
+  margin-top: 14px;
+}
+
+.hero-download-btn {
+  background: linear-gradient(135deg,#0066FF 0%, #0047D1 100%);
+  border: none;
+  padding: 12px 24px;
+  font-weight: 700;
+  border-radius: 50px;
+  box-shadow: 0 12px 40px rgba(0,70,255,0.18);
+}
+
+.hero-download-btn i {
+  transform: translateY(1px);
+}
+
+.hero-download-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 70px rgba(0,70,255,0.22);
 }
 
 .hero-content {
   position: absolute;
-  text-align: center;
-  color: white;
-  z-index: 2;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 80%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  text-align: right;
+  color: #05123a;
+  z-index: 3;
+  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.92));
+  backdrop-filter: blur(8px) saturate(120%);
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  max-width: 760px;
+  top: 18%;
+  right: 6%;
+  left: auto;
+  transform: none;
+  box-shadow: 0 10px 40px rgba(7,15,35,0.12);
 }
 
 .hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2.6rem;
+  margin-bottom: 0.5rem;
+  color: var(--main-color);
 }
 
 .hero-content p {
-  font-size: 1.5rem;
+  font-size: 1.05rem;
+  color: #24314f;
+}
+
+.hero-cta {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background: #0036FF;
+  color: #fff;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 8px 30px rgba(0,54,255,0.18);
+}
+
+.hero-cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 60px rgba(0,54,255,0.22);
 }
 
 /* Scroll to Top Button */
@@ -218,6 +278,28 @@ body {
   .hero-content p {
     font-size: 1rem;
   }
+  .hero-image-container img {
+    max-width: 100%;
+    border-width: 4px;
+  }
+}
+
+/* fade in up animation for hero image */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* optional: slight lift on focus (keyboard) but no hover animation to keep stability) */
+.hero-image-container img:focus {
+  outline: none;
+  box-shadow: 0 22px 70px rgba(7,15,35,0.22), 0 8px 26px rgba(7,15,35,0.14);
 }
 
     #services {
@@ -443,13 +525,79 @@ a{
 }
 
 .app-features {
-  color: #666;
-  font-size: 1rem;
-  line-height: 1.6;
+  background: rgba(255,255,255,0.98);
+  padding: 18px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(7,15,35,0.04);
+  color: #24314f;
+  font-size: 1.03rem;
+  line-height: 1.8;
   margin-bottom: 40px;
-  max-width: 800px;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  text-align: right;
+}
+
+.app-features h3 {
+  font-size: 1.25rem;
+  color: var(--main-color);
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.app-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.app-features ul li {
+  display: flex;
+  flex-direction: row; /* flipped: icon on the left */
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  transition: background 0.15s ease, transform 0.15s ease;
+  color: #233049;
+  min-height: 48px;
+}
+
+.app-features ul li::before {
+  content: "\f058"; /* FontAwesome check-circle */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--whatsapp-green);
+  color: #fff;
+  font-size: 0.95rem;
+  flex: 0 0 auto;
+  margin-top: 2px;
+  box-shadow: 0 6px 18px rgba(37,211,102,0.12);
+}
+
+.app-features ul li .feature-text {
+  flex: 1 1 auto;
+  text-align: right;
+}
+
+.app-features ul li:hover {
+  background: rgba(0,54,255,0.03);
+  transform: translateY(-2px);
+}
+
+/* responsive tweaks */
+@media (max-width: 600px) {
+  .app-features { padding: 14px 12px; font-size: 0.98rem; }
+  .app-features ul li { padding: 8px 10px; gap: 10px; }
+  .app-features ul li::before { width: 30px; height: 30px; font-size: 0.85rem; }
 }
 
 .download-buttons {
